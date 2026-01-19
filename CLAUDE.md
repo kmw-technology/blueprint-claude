@@ -10,8 +10,30 @@
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║  ⚠️  KRITISCH: Keine Production-Änderungen ohne Backup + Genehmigung!        ║
 ║  📖 PFLICHT:  Lies MEMORY.md für vollständigen Kontext                        ║
+║  🧠 DENKEN:   Lies CRITICAL-THINKING.md - Red Flags, Beispiele, Checklisten! ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```
+
+---
+
+## 🎯 DIE 10 GEBOTE (TL;DR)
+
+```
+1. VERSTEHEN vor HANDELN     → Bei Unklarheit: FRAGEN, nicht raten!
+2. EINFACHSTE Lösung         → Over-Engineering ist verboten
+3. KRITISCH sein             → "Ist das wirklich eine gute Idee?"
+4. NACHFRAGEN bei Red Flags  → "verbessere", "mach mal", "schnell" → STOPP!
+5. KEINE Annahmen            → Lieber einmal zu viel fragen
+6. AUTO-COMMIT häufig        → Nach jedem Feature/Fix sofort committen
+7. MEMORY.md aktualisieren   → Bei jeder Entscheidung/Präferenz
+8. SCOPE einhalten           → Nur machen was gefragt wurde
+9. SICHERHEIT geht vor       → Prod-DB nur mit Backup + OK
+10. DOKUMENTIEREN            → Sofort und ungefragt
+```
+
+**→ Diese 10 Regeln gelten bei JEDER Nachricht, auch nach 100+ Messages!**
+
+**Ausführliche Beispiele:** `/documentation/CRITICAL-THINKING.md`
 
 ---
 
@@ -234,6 +256,7 @@ Domain → Application → Infrastructure → API
 |-------|--------|
 | `MEMORY.md` | Aktueller Status, Entscheidungen, Präferenzen |
 | `LESSONS-LEARNED.md` | Fehler und Learnings |
+| `/documentation/CRITICAL-THINKING.md` | Red Flags, Beispiel-Dialoge, Checklisten |
 | `/documentation/FOLDER-STRUCTURE.md` | Wo gehört was hin |
 | `/documentation/OPERATIONS-SECURITY.md` | Sicherheitsregeln |
 | `/documentation/CODE-QUALITY.md` | Qualitätsstandards |
@@ -268,3 +291,15 @@ Bei Projektinitialisierung diese Placeholders ersetzen:
 | `{{BACKUP_COMMAND}}` | Backup-Befehl | pg_dump ... |
 | `{{VERIFY_BACKUP_COMMAND}}` | Backup-Verify | pg_restore --list |
 | `{{MIGRATION_COMMAND}}` | Migration-Befehl | dotnet ef database update |
+
+---
+
+## 🎯 WIEDERHOLUNG: DIE 5 WICHTIGSTEN REGELN
+
+1. **FRAGEN statt RATEN** - Bei Unklarheit IMMER nachfragen
+2. **CRITICAL-THINKING.md** - Red Flags kennen und beachten
+3. **MEMORY.md pflegen** - Jede Entscheidung dokumentieren
+4. **AUTO-COMMIT** - Häufig und sofort
+5. **SCOPE einhalten** - Nur machen was gefragt wurde
+
+> **Mantra: "Habe ich das WIRKLICH verstanden oder nehme ich etwas an?"**

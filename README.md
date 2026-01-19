@@ -14,6 +14,7 @@ blueprint-claude/
 ├── MEMORY.md                    # Langzeit-Gedächtnis Template
 ├── LESSONS-LEARNED.md           # Error-Learning System Template
 ├── .claude/commands/            # Custom Commands für Code-Qualität
+│   ├── cc-init.md               # Session-Initialisierung (--quick, --refresh)
 │   ├── cc-health-check.md       # Projekt Health-Check
 │   ├── cc-pre-commit.md         # Pre-Commit Checks
 │   ├── cc-code-review.md        # Code Review
@@ -30,6 +31,7 @@ blueprint-claude/
 ├── .github/workflows/           # CI/CD Templates
 │   └── ci.yml                   # CI Pipeline
 └── documentation/               # Dokumentations-Templates
+    ├── CRITICAL-THINKING.md     # Red Flags, Beispiel-Dialoge, Checklisten
     ├── CODE-QUALITY.md          # YAGNI, KISS, DRY
     ├── TESTING-STRATEGY.md      # Test-Pyramide, Coverage
     └── DEPLOYMENT-RUNBOOK.md    # Deployment-Anleitung
@@ -79,6 +81,15 @@ chmod +x .githooks/install.sh
 
 ## Enthaltene Learnings
 
+### Critical Thinking (NEU!)
+
+- **Die 10 Gebote** - TL;DR der wichtigsten Regeln ganz oben
+- **Red Flag Wörter** - Trigger für sofortiges Nachfragen
+- **Beispiel-Dialoge** - Gut vs. Schlecht Vergleiche
+- **Pflicht-Pause** - Checkliste vor größeren Aktionen
+- **Advocatus Diaboli** - Aktiv Gegenargumente suchen
+- **Wiederholung am Ende** - Top 5 Regeln nochmal
+
 ### Memory-System
 
 - **CLAUDE.md** als Schnellreferenz mit Status-Block
@@ -118,6 +129,7 @@ Alle Commands starten mit `cc-` (custom command):
 
 | Command | Beschreibung |
 |---------|--------------|
+| `/project:cc-init` | Session-Initialisierung (--quick, --refresh) |
 | `/project:cc-health-check` | Projekt-Gesundheit prüfen |
 | `/project:cc-pre-commit` | Vor Commit ausführen |
 | `/project:cc-code-review` | Code reviewen |
@@ -130,10 +142,12 @@ Alle Commands starten mit `cc-` (custom command):
 
 ## Empfohlene Routine
 
-1. **Vor dem Coden:** `/project:cc-health-check` (wöchentlich)
-2. **Nach dem Coden:** `/project:cc-code-review [datei]`
-3. **Vor dem Commit:** `/project:cc-pre-commit`
-4. **Bei Problemen:** `/project:cc-tech-debt` oder `/project:cc-find-duplicates`
+1. **Session-Start:** `/project:cc-init` (Context laden)
+2. **Vor dem Coden:** `/project:cc-health-check` (wöchentlich)
+3. **Nach dem Coden:** `/project:cc-code-review [datei]`
+4. **Vor dem Commit:** `/project:cc-pre-commit`
+5. **Mitten in Session:** `/project:cc-init --refresh` (bei Context-Drift)
+6. **Bei Problemen:** `/project:cc-tech-debt` oder `/project:cc-find-duplicates`
 
 ## Best Practices für Claude Code
 
