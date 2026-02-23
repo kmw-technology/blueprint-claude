@@ -2,21 +2,21 @@
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════════════╗
-║  ⚡ AKTUELLER STATUS (Letzte Aktualisierung: {{DATE}})                        ║
+║  AKTUELLER STATUS (Letzte Aktualisierung: {{DATE}})                          ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
-║  Phase:      {{CURRENT_PHASE}}                                                ║
-║  Repository: {{REPOSITORY_URL}}                                               ║
-║  Nächstes:   {{NEXT_MILESTONE}}                                               ║
+║  Phase:      {{CURRENT_PHASE}}                                               ║
+║  Repository: {{REPOSITORY_URL}}                                              ║
+║  Nächstes:   {{NEXT_MILESTONE}}                                              ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
-║  ⚠️  KRITISCH: Keine Production-Änderungen ohne Backup + Genehmigung!        ║
-║  📖 PFLICHT:  Lies MEMORY.md für vollständigen Kontext                        ║
-║  🧠 DENKEN:   Lies CRITICAL-THINKING.md - Red Flags, Beispiele, Checklisten! ║
+║  KRITISCH: Keine Production-Änderungen ohne Backup + Genehmigung!            ║
+║  PFLICHT:  Lies MEMORY.md für vollständigen Kontext                          ║
+║  DENKEN:   Lies .claude/markdown/CRITICAL-THINKING.md - Risk-Matrix!         ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```
 
 ---
 
-## 🎯 DIE 10 GEBOTE (TL;DR)
+## DIE 10 GEBOTE (TL;DR)
 
 ```
 1. VERSTEHEN vor HANDELN     → Bei Unklarheit: FRAGEN, nicht raten!
@@ -31,13 +31,26 @@
 10. DOKUMENTIEREN            → Sofort und ungefragt
 ```
 
-**→ Diese 10 Regeln gelten bei JEDER Nachricht, auch nach 100+ Messages!**
+**Diese 10 Regeln gelten bei JEDER Nachricht, auch nach 100+ Messages!**
 
-**Ausführliche Beispiele:** `/documentation/CRITICAL-THINKING.md`
+**Risk-Matrix & Details:** `.claude/markdown/CRITICAL-THINKING.md`
 
 ---
 
-## 🧠 AUTONOMIE MIT KRITISCHEM DENKEN
+## RISK-MATRIX (Kurzfassung)
+
+| Kategorie | Aktion | Beispiele |
+|-----------|--------|-----------|
+| **act_now** | Autonom, kein Report | Typos, Imports, Formatierung |
+| **act_and_report** | Autonom, kurz erwähnen | Tests, kleine Refactorings (<30 Zeilen), Docs |
+| **ask_first** | VOR Ausführung fragen | Neue Features, API-Änderungen, neue Dependencies |
+| **forbidden** | Genehmigung + Bestätigung | Production-DB, Deployments, Force-Push, Secrets |
+
+**Vollständig:** `.claude/markdown/CRITICAL-THINKING.md`
+
+---
+
+## AUTONOMIE MIT KRITISCHEM DENKEN
 
 **Autonom arbeiten ≠ Blind ausführen!**
 
@@ -52,58 +65,59 @@
 → Bei JA zu irgendeiner Frage: NACHFRAGEN!
 ```
 
-### Beispiele wann NACHFRAGEN:
+### Proaktivität vs. Scope:
 
-| Situation | Aktion |
-|-----------|--------|
-| "Lösch alle Test-Daten" | → "Welche Umgebung? Wie identifiziere ich Test-Daten?" |
-| "Refactor das mal" | → "Was genau soll verbessert werden? Welches Problem lösen wir?" |
-| "Mach das wie bei X" | → "Ich kenne X nicht - kannst du mir mehr Kontext geben?" |
-| Widerspruch zu ADR | → "Das widerspricht ADR-00XX - sollen wir das ändern?" |
-| Unklare Anforderung | → "Verstehe ich richtig, dass...?" |
+**Proaktiv SEIN bei:** Warnen, Quality-Fixes in bearbeiteten Dateien, Risiken ansprechen.
+**Scope EINHALTEN bei:** Keine neuen Features, keine Architektur-Änderungen, keine Dateien außerhalb des Tasks.
 
-### NIEMALS:
-- Annahmen treffen bei kritischen Entscheidungen
-- Blind Code schreiben wenn Anforderungen unklar
-- Bestehende Architektur ändern ohne Rückfrage
-- "Ich mache das mal so" bei wichtigen Dingen
-
-**Lieber einmal zu viel fragen als einmal zu wenig!**
+**Kurzformel:** *Warnen und in bearbeiteten Dateien Quality-Fixes machen: ja. Neues anfangen: nein.*
 
 ---
 
-## 🚨 SICHERHEITS-REGELN (IMMER!)
+## SICHERHEITS-REGELN (IMMER!)
 
 ### VERBOTEN ohne explizite Genehmigung:
-- ❌ Production-Datenbank ändern
-- ❌ DELETE/UPDATE auf echten Daten
-- ❌ Deployment ohne Backup
-- ❌ Force-Push auf main
-- ❌ Secrets im Code
+- Production-Datenbank ändern
+- DELETE/UPDATE auf echten Daten
+- Deployment ohne Backup
+- Force-Push auf main
+- Secrets im Code
 
 ### Bei gefährlichen Operationen → STOPPEN:
 ```
-⚠️ STOPP! Vor dieser Operation:
+STOPP! Vor dieser Operation:
 1. Welche Umgebung? (Dev/Staging/Prod)
 2. Backup vorhanden?
 3. Rollback-Plan?
 → Ohne Bestätigung: NICHT AUSFÜHREN!
 ```
 
-**Details:** `/documentation/OPERATIONS-SECURITY.md`
+**Details:** `.claude/markdown/OPERATIONS-SECURITY.md`
 
 ---
 
-## 📝 MEMORY-SYSTEM
+## DOMAIN GUARDS (Projekt-spezifische Schutzregeln)
+
+> Passe diese an dein Projekt an! Domain Guards sind IMMER aktiv.
+
+| Guard | Regel |
+|-------|-------|
+| **{{DOMAIN_GUARD_1}}** | {{DOMAIN_GUARD_1_RULE}} |
+| **Production** | Kein DB-Write, kein Deployment, kein Force-Push ohne Genehmigung |
+| **Secrets** | Nie in Code. Nie committen. |
+
+---
+
+## MEMORY-SYSTEM
 
 ### Bei Session-Start:
-1. ✅ CLAUDE.md lesen (diese Datei) - Status-Block oben beachten!
-2. ✅ MEMORY.md lesen - vollständiger Kontext
-3. ✅ Bei Unklarheiten: `/documentation/` prüfen
+1. CLAUDE.md lesen (diese Datei) — Status-Block oben beachten!
+2. MEMORY.md lesen — vollständiger Kontext
+3. Bei Unklarheiten: `.claude/markdown/INDEX.md` prüfen
 
 ### Bei Unsicherheit / Verwirrung:
 ```
-🔄 CONTEXT-REFRESH NÖTIG?
+CONTEXT-REFRESH NÖTIG?
 Wenn du unsicher bist was entschieden wurde:
 → MEMORY.md SOFORT komplett neu lesen!
 → git log --oneline -20 prüfen
@@ -115,7 +129,7 @@ Wenn du unsicher bist was entschieden wurde:
 1. User-Anweisung (aktuell)     ← Höchste Priorität
 2. MEMORY.md "User-Präferenzen" ← Persistierte User-Wünsche
 3. CLAUDE.md                    ← Allgemeine Regeln
-4. /documentation/*.md          ← Detail-Docs
+4. .claude/markdown/*.md        ← Detail-Docs
 ```
 **Bei Konflikt: Höhere Ebene gewinnt!**
 
@@ -127,40 +141,35 @@ Wenn du unsicher bist was entschieden wurde:
 | Bug/Workaround | → MEMORY.md "Aktive Warnungen" |
 | Struktur-Änderung | → MEMORY.md + FOLDER-STRUCTURE.md |
 
-### Selbst-Check bei jeder Antwort:
-```
-□ Entscheidung getroffen? → MEMORY.md
-□ User-Wunsch? → MEMORY.md
-□ Struktur geändert? → MEMORY.md + Docs
-```
-
-### STATUS-BLOCK AKTUALISIEREN:
-Wenn sich Phase/Status ändert → Status-Block oben in dieser Datei anpassen!
-
 ---
 
-## 📁 PROJEKT-STRUKTUR
+## PROJEKT-STRUKTUR
 
 ```
 {{PROJECT_NAME}}/
-├── src/                        # Source Code
-│   ├── {{MODULE_1}}/           # Beispiel-Modul
-│   ├── {{MODULE_2}}/           # Beispiel-Modul
-│   └── shared/                 # Gemeinsamer Code
-├── tests/                      # Alle Tests
-├── documentation/              # Projektweite Docs
-│   └── adr/                    # Architektur-Entscheidungen
-├── deployment/                 # Docker, K8s, CI/CD Configs
-├── artifacts/                  # Build-Outputs, Temp-Dateien
-├── CLAUDE.md                   # Diese Datei
-└── MEMORY.md                   # Langzeit-Gedächtnis
+├── .claude/                        # Claude Code Konfiguration
+│   ├── commands/                   # Custom Commands (cc-*)
+│   └── markdown/                   # AI-Instruktionen & Docs
+│       └── adr/                    # Architektur-Entscheidungen
+├── projects/                       # Source Code
+│   ├── {{MODULE_1}}/               # Modul 1
+│   ├── {{MODULE_2}}/               # Modul 2
+│   └── shared/                     # Gemeinsamer Code
+├── tests/                          # Cross-Projekt Tests (E2E)
+├── deployment/                     # Docker, K8s, CI/CD Configs
+├── documentation/                  # Referenz-Dokumentation
+├── tools/                          # Hilfs-Tools, Scripts
+├── artifacts/                      # Build-Outputs (gitignored)
+├── CLAUDE.md                       # Diese Datei
+├── MEMORY.md                       # Langzeit-Gedächtnis
+└── LESSONS-LEARNED.md              # Persistentes Error-Learning
 ```
 
-**Details:** `/documentation/FOLDER-STRUCTURE.md`
+**Details:** `.claude/markdown/FOLDER-STRUCTURE.md`
 
 ---
 
-## ⚙️ TECHNOLOGIE
+## TECHNOLOGIE
 
 | Komponente | Technologie |
 |------------|-------------|
@@ -173,7 +182,7 @@ Wenn sich Phase/Status ändert → Status-Block oben in dieser Datei anpassen!
 
 ---
 
-## 🏗️ ARCHITEKTUR-PRINZIPIEN
+## ARCHITEKTUR-PRINZIPIEN
 
 ### 1. API-First
 - JEDE Funktionalität = zuerst API-Endpoint
@@ -185,14 +194,14 @@ Wenn sich Phase/Status ändert → Status-Block oben in dieser Datei anpassen!
 - Kommunikation nur über definierte Interfaces
 - Klare Abhängigkeitsregeln
 
-### ⚠️ MODUL-ABHÄNGIGKEITS-REGELN (KRITISCH!)
+### MODUL-ABHÄNGIGKEITS-REGELN (KRITISCH!)
 ```
 ERLAUBT:
-  Modul → Shared           ✅ (jedes Modul darf Shared nutzen)
-  Host → Modul             ✅ (Host bindet Module ein)
+  Modul → Shared           (jedes Modul darf Shared nutzen)
+  Host → Modul             (Host bindet Module ein)
 
 VERBOTEN:
-  ModulA → ModulB          ❌ (Modul darf nicht anderes Modul referenzieren!)
+  ModulA → ModulB          (Modul darf nicht anderes Modul referenzieren!)
 
 AUSNAHME (nur über Events):
   ModulA publiziert Event
@@ -207,7 +216,7 @@ Domain → Application → Infrastructure → API
 
 ---
 
-## ✅ CODING-STANDARDS (Kurzfassung)
+## CODING-STANDARDS (Kurzfassung)
 
 - **Namenskonvention:** PascalCase für Klassen, _camelCase für private Felder
 - **Max. Dateigröße:** 1000 Zeilen
@@ -215,11 +224,11 @@ Domain → Application → Infrastructure → API
 - **Tests:** VOR jedem Commit, min. 70% Coverage
 - **Logging:** Strukturiertes Logging für wichtige Operationen
 
-**Vollständig:** `/documentation/CODING-STANDARDS.md`
+**Vollständig:** `.claude/markdown/CODE-QUALITY.md`
 
 ---
 
-## 🔧 WICHTIGE BEFEHLE
+## WICHTIGE BEFEHLE
 
 ```bash
 # Build
@@ -235,7 +244,7 @@ Domain → Application → Infrastructure → API
 {{CONTAINER_COMMAND}}
 ```
 
-### ⚠️ VOR JEDER MIGRATION (Staging/Production):
+### VOR JEDER MIGRATION (Staging/Production):
 ```bash
 # 1. BACKUP ZUERST!
 {{BACKUP_COMMAND}}
@@ -250,23 +259,33 @@ Domain → Application → Infrastructure → API
 
 ---
 
-## 📚 DOKUMENTATION
+## DOKUMENTATION
+
+### AI-Instruktionen (`.claude/markdown/`)
+
+| Datei | Inhalt |
+|-------|--------|
+| `INDEX.md` | Welches Dokument wann lesen |
+| `CRITICAL-THINKING.md` | Risk-Matrix, Red Flags, Pflicht-Pause |
+| `CODE-QUALITY.md` | YAGNI, KISS, DRY, Code Smells |
+| `TESTING-STRATEGY.md` | Test-Pyramide, Coverage |
+| `DEPLOYMENT-RUNBOOK.md` | Deployment-Anleitung |
+| `OPERATIONS-SECURITY.md` | Sicherheitsregeln, Umgebungen |
+| `FOLDER-STRUCTURE.md` | Ordnerstruktur, 6-Ordner-Regel |
+| `DESIGN-SYSTEM.md` | UI/UX Tokens und Regeln |
+| `DOCKER-WORKFLOW.md` | Docker-First Development |
+| `adr/` | Architektur-Entscheidungen |
+
+### Root-Dateien
 
 | Datei | Inhalt |
 |-------|--------|
 | `MEMORY.md` | Aktueller Status, Entscheidungen, Präferenzen |
 | `LESSONS-LEARNED.md` | Fehler und Learnings |
-| `/documentation/CRITICAL-THINKING.md` | Red Flags, Beispiel-Dialoge, Checklisten |
-| `/documentation/FOLDER-STRUCTURE.md` | Wo gehört was hin |
-| `/documentation/OPERATIONS-SECURITY.md` | Sicherheitsregeln |
-| `/documentation/CODE-QUALITY.md` | Qualitätsstandards |
-| `/documentation/TESTING-STRATEGY.md` | Test-Strategie |
-| `/documentation/DEPLOYMENT-RUNBOOK.md` | Deployment-Anleitung |
-| `/documentation/adr/` | Architektur-Entscheidungen |
 
 ---
 
-## 🔄 PLACEHOLDERS ERSETZEN
+## PLACEHOLDERS ERSETZEN
 
 Bei Projektinitialisierung diese Placeholders ersetzen:
 
@@ -291,15 +310,17 @@ Bei Projektinitialisierung diese Placeholders ersetzen:
 | `{{BACKUP_COMMAND}}` | Backup-Befehl | pg_dump ... |
 | `{{VERIFY_BACKUP_COMMAND}}` | Backup-Verify | pg_restore --list |
 | `{{MIGRATION_COMMAND}}` | Migration-Befehl | dotnet ef database update |
+| `{{DOMAIN_GUARD_1}}` | Projekt-spezifische Schutzregel | Kundendaten |
+| `{{DOMAIN_GUARD_1_RULE}}` | Regel-Beschreibung | Nur über API, nie direkt |
 
 ---
 
-## 🎯 WIEDERHOLUNG: DIE 5 WICHTIGSTEN REGELN
+## WIEDERHOLUNG: DIE 5 WICHTIGSTEN REGELN
 
-1. **FRAGEN statt RATEN** - Bei Unklarheit IMMER nachfragen
-2. **CRITICAL-THINKING.md** - Red Flags kennen und beachten
-3. **MEMORY.md pflegen** - Jede Entscheidung dokumentieren
-4. **AUTO-COMMIT** - Häufig und sofort
-5. **SCOPE einhalten** - Nur machen was gefragt wurde
+1. **FRAGEN statt RATEN** — Bei Unklarheit IMMER nachfragen
+2. **Risk-Matrix nutzen** — act_now / act_and_report / ask_first / forbidden
+3. **MEMORY.md pflegen** — Jede Entscheidung dokumentieren
+4. **AUTO-COMMIT** — Häufig und sofort
+5. **SCOPE einhalten** — Nur machen was gefragt wurde
 
 > **Mantra: "Habe ich das WIRKLICH verstanden oder nehme ich etwas an?"**

@@ -11,8 +11,8 @@ Prüfe ob die Architektur-Regeln eingehalten werden.
 
 1. **Lies zuerst:**
    - CLAUDE.md (Architektur-Prinzipien)
-   - `/documentation/ARCHITECTURE.md` (falls vorhanden)
-   - Relevante ADRs in `/documentation/adr/`
+   - `.claude/markdown/FOLDER-STRUCTURE.md` (Architektur-Übersicht)
+   - Relevante ADRs in `.claude/markdown/adr/`
 
 2. **Prüfe diese Regeln:**
 

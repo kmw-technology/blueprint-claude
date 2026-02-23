@@ -10,7 +10,7 @@ Führe ein Code Review für die angegebene Datei oder das Feature durch.
 ## Anweisungen
 
 1. **Lies zuerst:**
-   - `/documentation/CODING-STANDARDS.md` (falls vorhanden)
+   - `.claude/markdown/CODE-QUALITY.md` (falls vorhanden)
    - Die zu reviewende Datei(en)
 
 2. **Prüfe auf diese Kriterien:**

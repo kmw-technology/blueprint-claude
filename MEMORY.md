@@ -4,7 +4,7 @@
 
 ---
 
-## ⚠️ CONTEXT-VERLUST? LIES DAS HIER!
+## CONTEXT-VERLUST? LIES DAS HIER!
 
 **Wenn du (Claude) unsicher bist oder dich nicht erinnerst:**
 1. Diese ganze Datei lesen
@@ -29,24 +29,26 @@
 
 ---
 
-## 🎯 PROJEKT-ESSENZ (Die 5 wichtigsten Punkte)
+## PROJEKT-ESSENZ (Die 5 wichtigsten Punkte)
 
-1. **{{PRINCIPLE_1}}** - {{DESCRIPTION_1}}
-2. **{{PRINCIPLE_2}}** - {{DESCRIPTION_2}}
-3. **{{PRINCIPLE_3}}** - {{DESCRIPTION_3}}
-4. **{{PRINCIPLE_4}}** - {{DESCRIPTION_4}}
-5. **{{PRINCIPLE_5}}** - {{DESCRIPTION_5}}
+1. **{{PRINCIPLE_1}}** — {{DESCRIPTION_1}}
+2. **{{PRINCIPLE_2}}** — {{DESCRIPTION_2}}
+3. **{{PRINCIPLE_3}}** — {{DESCRIPTION_3}}
+4. **{{PRINCIPLE_4}}** — {{DESCRIPTION_4}}
+5. **{{PRINCIPLE_5}}** — {{DESCRIPTION_5}}
 
 ---
 
-## 🚨 KRITISCHE DATEIEN (PFLICHTLEKTÜRE VOR AKTIONEN!)
+## KRITISCHE DATEIEN (PFLICHTLEKTÜRE VOR AKTIONEN!)
 
 | Aktion | ZUERST LESEN |
 |--------|--------------|
-| **Deployment** | `DEPLOYMENT-RUNBOOK.md` |
+| **Deployment** | `.claude/markdown/DEPLOYMENT-RUNBOOK.md` |
 | **Kritische Änderung** | `LESSONS-LEARNED.md` |
-| **Code schreiben** | `CODE-QUALITY.md` (YAGNI/KISS) |
-| **Tests schreiben** | `TESTING-STRATEGY.md` |
+| **Code schreiben** | `.claude/markdown/CODE-QUALITY.md` (YAGNI/KISS) |
+| **Tests schreiben** | `.claude/markdown/TESTING-STRATEGY.md` |
+| **UI ändern** | `.claude/markdown/DESIGN-SYSTEM.md` |
+| **Docker** | `.claude/markdown/DOCKER-WORKFLOW.md` |
 | **Bei Fehler** | `LESSONS-LEARNED.md` → Fehler dokumentieren! |
 
 ---
@@ -58,7 +60,7 @@
 | {{DECISION_1}} | {{REASON_1}} | ADR-0001 |
 | {{DECISION_2}} | {{REASON_2}} | ADR-0002 |
 
-**Vollständige ADRs:** `/documentation/adr/`
+**Vollständige ADRs:** `.claude/markdown/adr/`
 
 ### ADR-Index (Wann lesen?)
 
@@ -71,13 +73,14 @@
 
 | Dokument | Lesen wenn... |
 |----------|---------------|
-| ARCHITECTURE.md | Architektur-Überblick, neue Module |
-| CODING-STANDARDS.md | Code schreiben, Code Review |
-| CODE-QUALITY.md | YAGNI/KISS, Code Smells, Duplikate, Static Analysis |
-| TESTING-STRATEGY.md | Tests schreiben, Coverage |
-| DEPLOYMENT-RUNBOOK.md | **VOR JEDEM DEPLOYMENT LESEN!** |
-| FOLDER-STRUCTURE.md | Neue Dateien/Ordner erstellen |
-| **LESSONS-LEARNED.md** | **VOR KRITISCHEN AKTIONEN LESEN!** |
+| `.claude/markdown/INDEX.md` | Unsicher welches Dokument relevant ist |
+| `.claude/markdown/CODE-QUALITY.md` | Code schreiben, Code Review |
+| `.claude/markdown/TESTING-STRATEGY.md` | Tests schreiben, Coverage |
+| `.claude/markdown/DEPLOYMENT-RUNBOOK.md` | **VOR JEDEM DEPLOYMENT LESEN!** |
+| `.claude/markdown/FOLDER-STRUCTURE.md` | Neue Dateien/Ordner erstellen |
+| `.claude/markdown/DESIGN-SYSTEM.md` | UI/Frontend ändern |
+| `.claude/markdown/DOCKER-WORKFLOW.md` | Docker-Services starten/stoppen |
+| `LESSONS-LEARNED.md` | **VOR KRITISCHEN AKTIONEN LESEN!** |
 
 ### Custom Commands (Wann welchen Command nutzen?)
 
@@ -85,23 +88,29 @@
 
 | Command | Wann nutzen? |
 |---------|--------------|
+| `/project:cc-init` | Session starten, Context laden |
 | `/project:cc-health-check` | Gesamtüberblick über Projekt-Gesundheit |
 | `/project:cc-pre-commit` | VOR jedem Commit ausführen |
 | `/project:cc-code-review` | Code auf Best Practices prüfen |
-| `/project:cc-find-duplicates` | Duplicate Code finden und refactoren |
+| `/project:cc-find-duplicates` | Duplicate Code finden |
 | `/project:cc-fix-code-smells` | Code Smells identifizieren und beheben |
 | `/project:cc-write-tests` | Tests für Datei/Feature schreiben |
 | `/project:cc-check-architecture` | Architektur-Regeln prüfen |
 | `/project:cc-tech-debt` | Technical Debt analysieren |
 | `/project:cc-security-check` | Sicherheitsanalyse durchführen |
-| `/project:cc-run-tests` | Tests ausführen |
 | `/project:cc-build-check` | Build prüfen |
+| `/project:cc-run-tests` | Tests ausführen |
+| `/project:cc-maintenance` | Code-Wartung (Audit/Fix) |
+| `/project:cc-docker-up` | Docker-Services starten |
+| `/project:cc-docker-logs` | Docker-Logs analysieren |
+| `/project:cc-docker-stop` | Docker-Services stoppen |
 
 **Empfohlene Routine:**
-1. **Vor dem Coden:** `/project:cc-health-check` (wöchentlich)
-2. **Nach dem Coden:** `/project:cc-code-review [datei]`
-3. **Vor dem Commit:** `/project:cc-pre-commit`
-4. **Bei Problemen:** `/project:cc-tech-debt` oder `/project:cc-find-duplicates`
+1. **Session-Start:** `/project:cc-init` (Context laden)
+2. **Vor dem Coden:** `/project:cc-health-check` (wöchentlich)
+3. **Nach dem Coden:** `/project:cc-code-review [datei]`
+4. **Vor dem Commit:** `/project:cc-pre-commit`
+5. **Bei Context-Drift:** `/project:cc-init --refresh`
 
 ---
 
@@ -110,7 +119,7 @@
 | Bereich | Präferenz | Datum |
 |---------|-----------|-------|
 | Memory-System | Claude soll IMMER und UNGEFRAGT wichtige Dinge dokumentieren | {{DATE}} |
-| Autonomie | Autonom arbeiten, aber KRITISCH gegenüber User-Prompts - bei Problemen/Unklarheiten NACHFRAGEN! | {{DATE}} |
+| Autonomie | Autonom arbeiten, aber KRITISCH gegenüber User-Prompts — bei Problemen/Unklarheiten NACHFRAGEN! | {{DATE}} |
 
 ---
 
@@ -180,25 +189,22 @@
 
 ---
 
-## Langzeit-Strategien (Implementiert)
+## Langzeit-Strategien
 
 ### Testing
 - **Strategie:** Test-Pyramide (70% Unit, 20% Integration, 10% E2E)
 - **Coverage-Gate:** Build scheitert unter 70%
-- **Docs:** `/documentation/TESTING-STRATEGY.md`
-
-### Dependency-Management
-- **Dependabot:** Wöchentliche Updates
-- **Security:** Vulnerability-Scan in CI
-- **Docs:** `/documentation/DEPENDENCY-MANAGEMENT.md`
+- **Docs:** `.claude/markdown/TESTING-STRATEGY.md`
 
 ### Wartungs-Checklisten
 
-| Intervall | Aufgabe | Dokument |
-|-----------|---------|----------|
-| **Wöchentlich** | Dependabot-PRs mergen | DEPENDENCY-MANAGEMENT.md |
-| **Monatlich** | Major-Updates evaluieren | DEPENDENCY-MANAGEMENT.md |
-| **Vor Release** | Coverage + Security Check | TESTING-STRATEGY.md |
+| Intervall | Aufgabe | Command/Dokument |
+|-----------|---------|------------------|
+| **Wöchentlich** | Health-Check | `/project:cc-health-check` |
+| **Wöchentlich** | Dependency-Updates prüfen | Dependabot/Renovate |
+| **Monatlich** | Tech-Debt analysieren | `/project:cc-tech-debt` |
+| **Monatlich** | Duplicates prüfen | `/project:cc-find-duplicates` |
+| **Vor Release** | Coverage + Security Check | `/project:cc-pre-commit` |
 
 ---
 
@@ -213,9 +219,9 @@
 ## Regeln für Claude (IMMER beachten!)
 
 ### 1. Vor JEDER Code-Änderung
-- [ ] Relevante Dokumentation lesen (`/documentation/`)
+- [ ] Relevante Dokumentation lesen (`.claude/markdown/`)
 - [ ] FOLDER-STRUCTURE.md beachten
-- [ ] CODING-STANDARDS.md befolgen
+- [ ] CODE-QUALITY.md befolgen
 - [ ] Tests für Änderungen schreiben
 
 ### 2. Bei neuen Features
@@ -239,7 +245,7 @@
 
 ### 5. Bei Unsicherheit
 - **Fragen!** Lieber einmal mehr fragen als Fehler machen
-- `/documentation/` lesen
+- `.claude/markdown/` lesen
 - ADRs prüfen
 - Bestehenden Code als Referenz nutzen
 
@@ -273,8 +279,8 @@ So geht bei Context-Komprimierung nichts Wichtiges verloren.
 
 ### Bei JEDER Session:
 1. Diese Datei ZUERST lesen
-2. "Offene Fragen" prüfen - evtl. mit User klären
-3. "User-Präferenzen" beachten - das sind REGELN!
+2. "Offene Fragen" prüfen — evtl. mit User klären
+3. "User-Präferenzen" beachten — das sind REGELN!
 
 ### WÄHREND der Session:
 - Entscheidung getroffen? → SOFORT hier eintragen

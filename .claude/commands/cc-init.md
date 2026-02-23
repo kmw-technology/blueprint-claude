@@ -165,8 +165,11 @@ Bei "verbessere", "mach mal", "schnell" → NACHFRAGEN!
 
 | User fragt nach | Dann lies |
 |-----------------|-----------|
-| Architektur | `adr/*.md` |
-| Code-Qualität | `CODE-QUALITY.md` komplett |
-| Tests | `TESTING-STRATEGY.md` komplett |
-| Deployment | `DEPLOYMENT-RUNBOOK.md` |
-| Security | `OPERATIONS-SECURITY.md` |
+| Architektur | `.claude/markdown/adr/*.md` |
+| Code-Qualität | `.claude/markdown/CODE-QUALITY.md` komplett |
+| Tests | `.claude/markdown/TESTING-STRATEGY.md` komplett |
+| Deployment | `.claude/markdown/DEPLOYMENT-RUNBOOK.md` |
+| Security | `.claude/markdown/OPERATIONS-SECURITY.md` |
+| UI/Frontend | `.claude/markdown/DESIGN-SYSTEM.md` |
+| Docker | `.claude/markdown/DOCKER-WORKFLOW.md` |
+| Ordnerstruktur | `.claude/markdown/FOLDER-STRUCTURE.md` |

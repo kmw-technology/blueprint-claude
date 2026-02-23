@@ -10,7 +10,7 @@ Schreibe Tests für die angegebene Datei oder das Feature.
 ## Anweisungen
 
 1. **Lies zuerst:**
-   - `/documentation/TESTING-STRATEGY.md` (falls vorhanden)
+   - `.claude/markdown/TESTING-STRATEGY.md` (falls vorhanden)
    - Die zu testende Datei
    - Existierende Tests als Referenz
 
