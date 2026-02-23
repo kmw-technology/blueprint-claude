@@ -151,15 +151,19 @@ Wenn du unsicher bist was entschieden wurde:
 │   ├── commands/                   # Custom Commands (cc-*)
 │   └── markdown/                   # AI-Instruktionen & Docs
 │       └── adr/                    # Architektur-Entscheidungen
-├── projects/                       # Source Code
+├── projects/                       # Source Code aller Module
 │   ├── {{MODULE_1}}/               # Modul 1
 │   ├── {{MODULE_2}}/               # Modul 2
 │   └── shared/                     # Gemeinsamer Code
 ├── tests/                          # Cross-Projekt Tests (E2E)
 ├── deployment/                     # Docker, K8s, CI/CD Configs
 ├── documentation/                  # Referenz-Dokumentation
-├── tools/                          # Hilfs-Tools, Scripts
-├── artifacts/                      # Build-Outputs (gitignored)
+├── tools/                          # Hilfs-Tools, Utilities
+├── scripts/                        # Build-/Deploy-/Migrations-Scripts
+├── resources/                      # Statische Ressourcen, Seed-Daten
+├── artifacts/                      # Build-Outputs, Reports
+├── temporary/                      # Scratch-Dateien (gitignored)
+├── secrets/                        # Lokale Secrets (gitignored)
 ├── CLAUDE.md                       # Diese Datei
 ├── MEMORY.md                       # Langzeit-Gedächtnis
 └── LESSONS-LEARNED.md              # Persistentes Error-Learning

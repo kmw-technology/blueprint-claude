@@ -71,6 +71,12 @@ tmp/
 temp/
 .cache/
 
+# Project folders (gitignored content, keep .gitkeep)
+temporary/*
+!temporary/.gitkeep
+secrets/*
+!secrets/.gitkeep
+
 # Package managers
 packages/
 *.nupkg
