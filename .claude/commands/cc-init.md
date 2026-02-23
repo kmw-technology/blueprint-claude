@@ -5,7 +5,7 @@ Lade Projekt-Kontext für eine neue Session.
 ## Verwendung
 
 ```
-/cc-init [mode]
+/project:cc-init [mode]
 ```
 
 | Mode | Beschreibung | Wann nutzen |
@@ -52,8 +52,8 @@ find . -name "*.csproj" -o -name "package.json" -o -name "Cargo.toml" | head -10
 | Datei | Extrahiere nur |
 |-------|----------------|
 | `LESSONS-LEARNED.md` | Letzte 3 Learnings |
-| `CODE-QUALITY.md` | YAGNI/KISS Regeln |
-| `TESTING-STRATEGY.md` | Coverage-Ziel |
+| `.claude/markdown/CODE-QUALITY.md` | YAGNI/KISS Regeln |
+| `.claude/markdown/TESTING-STRATEGY.md` | Coverage-Ziel |
 
 > Falls Datei fehlt → überspringen, notieren.
 

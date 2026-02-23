@@ -2,7 +2,9 @@
 
 Zeigt Logs der Docker-Container an und analysiert Fehler.
 
-## Argument: $ARGUMENTS
+## Verwendung
+
+**Argument:** $ARGUMENTS
 
 **Modi:**
 - `(leer)` — Übersicht aller Services (letzte 20 Zeilen je Service)

@@ -2,7 +2,9 @@
 
 Stoppt die Docker-Container.
 
-## Argument: $ARGUMENTS
+## Verwendung
+
+**Argument:** $ARGUMENTS
 
 **Modi:**
 - `(leer)` — Alle Container stoppen (Daten bleiben erhalten)

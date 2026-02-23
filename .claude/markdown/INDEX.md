@@ -55,20 +55,23 @@ Bei Bedarf on-demand lesen — technische Referenz, keine AI-Instruktionen.
 | `/project:cc-check-architecture` | Architektur-Regeln prüfen |
 | `/project:cc-tech-debt` | Technical Debt analysieren |
 
-### Testing & Security
+### Build & Testing
 
 | Command | Wann nutzen? |
 |---------|--------------|
+| `/project:cc-build-check` | Build + Format + Tests prüfen |
+| `/project:cc-run-tests` | Tests ausführen (Unit/Integration/Coverage) |
 | `/project:cc-write-tests` | Tests für Datei/Feature schreiben |
 | `/project:cc-security-check` | Sicherheitsanalyse durchführen |
 | `/project:cc-pre-commit` | VOR jedem Commit ausführen |
 
-### Projekt & Session
+### Projekt & Wartung
 
 | Command | Wann nutzen? |
 |---------|--------------|
 | `/project:cc-init` | Session starten / Context laden |
 | `/project:cc-health-check` | Gesamtüberblick über Projekt-Gesundheit |
+| `/project:cc-maintenance` | Systematische Code-Wartung (Audit/Fix) |
 
 ### Docker (wenn Docker genutzt wird)
 

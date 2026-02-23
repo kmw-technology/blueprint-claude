@@ -2,7 +2,9 @@
 
 Führt Tests aus und zeigt Ergebnisse an.
 
-## Argument: $ARGUMENTS
+## Verwendung
+
+**Argument:** $ARGUMENTS
 
 **Modi:**
 - `(leer)` — Alle Tests ausführen

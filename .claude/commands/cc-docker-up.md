@@ -2,7 +2,9 @@
 
 Startet die Entwicklungsumgebung via Docker Compose.
 
-## Argument: $ARGUMENTS
+## Verwendung
+
+**Argument:** $ARGUMENTS
 
 **Modi:**
 - `(leer)` — Alle Services starten
@@ -80,7 +82,7 @@ timeout 30 bash -c 'until curl -s http://localhost:{{PORT}}/api/health > /dev/nu
 | Frontend | ✅/❌ | http://localhost:{{FRONTEND_PORT}} |
 | Backend | ✅/❌ | http://localhost:{{BACKEND_PORT}} |
 
-Logs anzeigen: `/cc-docker-logs`
+Logs anzeigen: `/project:cc-docker-logs`
 ```
 
 Falls ein Service fehlgeschlagen ist → Logs anzeigen und Fehler analysieren.

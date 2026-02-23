@@ -2,7 +2,9 @@
 
 Prüft ob das Projekt sauber baut und alle Grundvoraussetzungen erfüllt.
 
-## Argument: $ARGUMENTS
+## Verwendung
+
+**Argument:** $ARGUMENTS
 
 **Modi:**
 - `(leer)` — Standard Build-Check (Build + Format + Unit-Tests)

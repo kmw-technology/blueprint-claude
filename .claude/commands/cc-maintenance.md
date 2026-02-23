@@ -2,7 +2,9 @@
 
 Systematische Code-Wartung: Audit, Plan, Fix, Verify.
 
-## Argument: $ARGUMENTS
+## Verwendung
+
+**Argument:** $ARGUMENTS
 
 **Modi:**
 - `audit` — Nur analysieren, nichts ändern (Standard)

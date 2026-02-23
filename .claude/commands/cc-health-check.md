@@ -14,7 +14,7 @@ Führe einen umfassenden Gesundheitscheck des Projekts durch.
 - [ ] Gibt es Dateien > 500 Zeilen? (Refactoring-Kandidaten)
 - [ ] Gibt es offensichtlichen Duplicate Code?
 - [ ] Sind alle public Methoden dokumentiert?
-- [ ] Folgt der Code den CODING-STANDARDS.md?
+- [ ] Folgt der Code den `.claude/markdown/CODE-QUALITY.md` Standards?
 
 ### Test-Abdeckung
 - [ ] Sind alle Tests grün?
